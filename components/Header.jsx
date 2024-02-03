@@ -13,6 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Paper from "@mui/material/Paper";
 import Image from "next/image";
+import Link from "next/link";
 
 const pages = ["Projects", "About", "Contact"];
 
@@ -30,22 +31,24 @@ function Header() {
 
 
   return (
-    <AppBar position="sticky" color="transparent"   >
+    <AppBar position="sticky" sx={{background:"white"}}   >
       <Container maxWidth="xl"  >
         <Toolbar disableGutters sx={{height:100,alignItems:"center"}}>
-          <Image src={"/yuga_dark.png"} alt="brand-logo" width={115} height={115} />
+          <Link href="/">
+          <Image src={"/yuga_dark.png"} alt="brand-logo" width={115} height={115} priority />
+          </Link>
           <Typography
             variant="h4"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            
+            
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 800,
               letterSpacing: "0.9rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           >
@@ -65,7 +68,7 @@ function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: "0.9rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           >
@@ -73,13 +76,15 @@ function Header() {
           </Typography>
           <Box mr={5} sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent:"right" }}>
             {pages.map((page) => (
+              <Link key={page} href={page.toLowerCase()} style={{textDecoration:"none"}}>
               <Button
-                key={page}
+                
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block",textTransform:"none",fontSize:"medium"}}
               >
                 {page}
               </Button>
+              </Link>
             ))}
           </Box>
 
@@ -90,9 +95,9 @@ function Header() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              
             >
-              <MenuIcon />
+              <MenuIcon sx={{color:"black"}} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -110,13 +115,16 @@ function Header() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
+               
               }}
             >
-              <Paper elevation={0}  sx={{ width: '100vw',height:"auto" }}>
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+              <Paper elevation={0}  sx={{ width: '100vw',height:"auto"}}>
+                {pages.map((page,index) => (
+                  <Link key={page} href={page.toLowerCase()} style={{textDecoration:"none",color:"black"}}>
+                  <MenuItem  onClick={handleCloseNavMenu}  style={{ marginBottom: index < pages.length - 1 ? '50px' : 0}}>
+                    <Typography  sx={{width:"100%"}}>{page}</Typography>
                   </MenuItem>
+                  </Link>
                 ))}
               </Paper>
             </Menu>
