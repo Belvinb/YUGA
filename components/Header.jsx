@@ -31,7 +31,7 @@ function Header() {
 
 
   return (
-    <AppBar position="sticky" sx={{background:"white"}}   >
+    <AppBar position="sticky" sx={{background:"white",boxShadow:"none"}}   >
       <Container maxWidth="xl"  >
         <Toolbar disableGutters sx={{height:100,alignItems:"center"}}>
           <Link href="/">
@@ -46,7 +46,7 @@ function Header() {
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
-              fontWeight: 800,
+              fontWeight: 600,
               letterSpacing: "0.9rem",
               color: "black",
               textDecoration: "none",

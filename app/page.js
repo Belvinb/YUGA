@@ -1,31 +1,62 @@
-"use client"
+"use client";
 import Image from "next/image";
-import styles from "./page.module.css";
-import Button from '@mui/material/Button'
-import Carousel from 'react-material-ui-carousel'
+import Carousel from "react-material-ui-carousel";
+import Grid from "@mui/material/Grid";
 
 export default function Home() {
-
-  const items = [
-    "/sample.webp",
-    "/sample2.webp",
-    "/sample3.webp"
-
-  ]
+  const items = ["/sample1.webp", "/sample2.webp"];
 
   return (
-    <main  >
-
+    <Grid >
       <Carousel>
-      {items.map((item, index) => (
-          <div key={index} style={{ width: "100%", height: "100vh", position: "relative" }}>
-            <Image src={item} fill sizes="100vw" quality={80}  alt={`sample${index + 1}`} />
-          </div>
+        {items?.map((item, index) => (
+          <Grid container key={index}>
+            <Image
+              src={item}
+              width={0}
+              height={0}
+              style={{ width: "100%", maxHeight: "86vh", height: "auto" }}
+              sizes="100vw"
+              priority
+              quality={65 }
+              alt={`sample${index + 1}`}
+              placeholder="blur"
+              blurDataURL="/sample1.webp"
+            />
+          </Grid>
         ))}
       </Carousel>
-dfg
+      <Grid container padding={3} spacing={2}>
+        <Grid item xs={12} md={6}>
+        <Image
+              src="/sample1.webp"
+              width={0}
+              height={0}
+              style={{ width: "100%", maxHeight: "86vh", height: "auto" }}
+              sizes="100vw"
+              loading="lazy"
+              quality={65 }
+              alt={`sample1`}
+            />
 
-    
-    </main>
+        </Grid>
+        <Grid item xs={12} md={6}>
+        <Image
+              src="/sample2.webp"
+              width={0}
+              height={0}
+              style={{ width: "100%", maxHeight: "86vh", height: "auto" }}
+              sizes="65vw"
+              loading="lazy"
+              quality={65 }
+              alt={`sample1`}
+            />
+
+        </Grid>
+
+
+      </Grid>
+      
+    </Grid>
   );
 }
