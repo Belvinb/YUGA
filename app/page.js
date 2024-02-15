@@ -33,7 +33,7 @@ export default function Home() {
 //   console.log(banner)
 
 //  console.log(final)
-const { data, error, isLoading } = useSWR('http://localhost:3000/api/bannerimage', fetcher,parameters)
+const { data, error, isLoading } = useSWR('yugaarchitecturalstudio.vercel.app/api/bannerimage', fetcher,parameters)
 let carouseldata
 if(data){
 
