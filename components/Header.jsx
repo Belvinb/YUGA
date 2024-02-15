@@ -31,7 +31,7 @@ function Header() {
 
 
   return (
-    <AppBar position="sticky" sx={{background:"white",boxShadow:"none"}}   >
+    <AppBar position="sticky" sx={{background:"white"}}   >
       <Container maxWidth="xl"  >
         <Toolbar disableGutters sx={{height:100,alignItems:"center"}}>
           <Link href="/">
