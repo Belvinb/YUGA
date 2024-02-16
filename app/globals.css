@@ -84,6 +84,13 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+
+@font-face { 
+  font-family: "Lovelo"; 
+  src: url('../font/Lovelo-Black.woff2'); 
+  font-weight: normal; 
+  font-style: normal; 
+} 
 /* html,
 body {
   max-width: 100vw;

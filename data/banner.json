@@ -1,0 +1,35 @@
+{
+  "_id": { "$oid": "65c8995d3ca90fec25827598" },
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645691/yuga/banners/zqizcvh0bknhuijzq7ue.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645691/yuga/banners/p47yaabt4pqomjzxxft0.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645691/yuga/banners/qqqxpsbseaj0cgkxrzjy.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645690/yuga/banners/qvvwzdsmnfvyauurpizf.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645690/yuga/banners/wzji8w5bqbcyemz2fmkf.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645690/yuga/banners/wf1hvrppzpdxccfcpdsl.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645689/yuga/banners/nhuxi2js0lbmea0auozq.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645689/yuga/banners/dwbnwlfeiplcoyftq68k.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645689/yuga/banners/e3prlojvgzqdj6ccwnur.webp"
+    },
+    {
+      "url": "https://res.cloudinary.com/dttpvfcz1/image/upload/v1707645689/yuga/banners/v5fljpoibt42sotz5z5m.webp"
+    }
+  ]
+}

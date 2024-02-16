@@ -1,6 +1,7 @@
 import connectDB from "@/lib/db";
 import Banner from "@/models/bannerModel";
-import { NextResponse } from "next/server";
+import Project from "@/models/projectModel";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -14,4 +15,19 @@ export async function GET() {
     console.error("Error fetching banners:", error);
     return NextResponse.error("Error fetching banners", { status: 500 });
   }
+}
+
+export async function POST(req){
+  await connectDB()
+
+  const body = await req.json()
+  const newProject = await Project.create(body)
+  return NextResponse.json(newProject)
+
+  try {
+    
+  } catch (error) {
+    
+  }
+  
 }

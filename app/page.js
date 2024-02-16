@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
-import Grid from "@mui/material/Grid";
-import useSWR from 'swr'
-
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import useSWR from "swr";
+import bannerData from "../data/banner.json";
 // const getBanners = async () => {
 //   try {
 //     const res = await fetch("http://localhost:3000/api/bannerimage");
@@ -17,7 +17,7 @@ import useSWR from 'swr'
 //     console.log(error);
 //   }
 // };
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const parameters = {
   revalidateOnFocus: true,
   revalidateOnMount: true,
@@ -25,35 +25,43 @@ const parameters = {
   refreshWhenOffline: false,
   refreshWhenHidden: false,
   refreshInterval: 0,
-  staleTime : 300000
+  staleTime: 300000,
 };
 
 export default function Home() {
-//   const banner = await getBanners();
-//   console.log(banner)
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  //   const banner = await getBanners();
+  //   console.log(banner)
+  console.log(bannerData, "sdfsdf");
+  //  console.log(final)
+  // const { data, error, isLoading } = useSWR('/api/bannerimage', fetcher,parameters)
+  // let carouseldata
+  // if(data){
 
-//  console.log(final)
-const { data, error, isLoading } = useSWR('/api/bannerimage', fetcher,parameters)
-let carouseldata
-if(data){
-
-  carouseldata = data[0].images 
-}
-console.log(carouseldata)
+  //   carouseldata = data[0].images
+  // }
+  // console.log(carouseldata)
 
   return (
     <Grid>
       <Carousel>
-        {carouseldata?.map((item, index) => (
+        {bannerData.images?.map((item, index) => (
           <Grid container key={index}>
             <Image
-              src={item}
+              src={item.url}
               width={0}
               height={0}
-              style={{ width: "100%", height:"auto",maxHeight:"86vh",transform: "scale(0.96)"}}
+              style={{
+                width: "100%",
+                height: isSmallScreen ? "40vh" : "auto",
+                maxHeight: "86vh",
+                // minHeight: isSmallScreen ? "40vh" : "86vh",
+                transform: "scale(1.02)",
+              }}
               sizes="100vw"
               priority
-              quality={65 }
+              quality={65}
               alt={`sample${index + 1}`}
               placeholder="blur"
               blurDataURL="/sample1.webp"
@@ -73,6 +81,7 @@ console.log(carouseldata)
             quality={65}
             alt={`sample1`}
           />
+          <h1>House 1</h1>
         </Grid>
         <Grid item xs={12} md={6}>
           <Image
@@ -85,6 +94,7 @@ console.log(carouseldata)
             quality={65}
             alt={`sample1`}
           />
+          <h1>House 2</h1>
         </Grid>
       </Grid>
     </Grid>

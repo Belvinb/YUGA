@@ -14,76 +14,145 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Paper from "@mui/material/Paper";
 import Image from "next/image";
 import Link from "next/link";
+import localFont from "next/font/local";
+import styles from "../app/page.module.css";
+import { Grid } from "@mui/material";
+import Drawer from '@mui/material/Drawer';
+
 
 const pages = ["Projects", "About", "Contact"];
 
+// const myFont = localFont({ src: '../public/font/Lovelo-Black.woff2' })
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [drawerOpen,setDrawerOpen] = React.useState(false)
+  const toggleDrawer =  (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setDrawerOpen(!drawerOpen);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-
   return (
-    <AppBar position="sticky" sx={{background:"white"}}   >
-      <Container maxWidth="xl"  >
-        <Toolbar disableGutters sx={{height:100,alignItems:"center"}}>
+    <AppBar position="sticky" sx={{ background: "white" }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters sx={{ height: 100, alignItems: "center" }}>
           <Link href="/">
-          <Image src={"/yuga_dark.png"} alt="brand-logo" width={115} height={115} priority />
+            <Image
+              src={"/yuga_dark.png"}
+              alt="brand-logo"
+              width={115}
+              height={115}
+              priority
+            />
           </Link>
-          <Typography
-            variant="h4"
-            noWrap
-            
-            
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 600,
-              letterSpacing: "0.9rem",
-              color: "black",
-              textDecoration: "none",
-            }}
-          >
-            YUGA
-          </Typography>
+          <Grid >
+            <Typography
+              variant="h4"
+              noWrap
+              // className={styles.testFont}
+
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "Lovelo",
+                // fontWeight: 200,
+                letterSpacing: "0.9rem",
+                color: "black",
+                textDecoration: "none",
+              }}
+            >
+              YUGA
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                color: "black",
+                fontFamily: "Lovelo", // Use any font family you prefer
+                fontSize: "0.7rem",
+                textTransform:"none"
+              }}
+            >
+              Architechtural Studio
+            </Typography>
+          </Grid>
 
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          <Typography
-            variant="h5"
+          <Grid container direction="column">
+
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              // className={myFont.className}
+              // href="#app-bar-with-responsive-menu"
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "Lovelo",
+                // fontWeight: 700,
+                letterSpacing: "0.9rem",
+                color: "black",
+                textDecoration: "none",
+              }}
+            >
+              YUGA
+            </Typography>
+            <Typography
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+              variant="subtitle2"
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                color: "black",
+                fontFamily: "Lovelo", // Use any font family you prefer
+                fontSize: "0.6rem",
+              }}
+            >
+              Architechtural Studio
+            </Typography>
+          </Grid>
+          
+          
+          <Box
+            mr={5}
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: "0.9rem",
-              color: "black",
-              textDecoration: "none",
+              display: { xs: "none", md: "flex" },
+              justifyContent: "right",
             }}
           >
-            YUGA
-          </Typography>
-          <Box mr={5} sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent:"right" }}>
             {pages.map((page) => (
-              <Link key={page} href={page.toLowerCase()} style={{textDecoration:"none"}}>
-              <Button
-                
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block",textTransform:"none",fontSize:"medium"}}
+              <Link
+                key={page}
+                href={page.toLowerCase()}
+                style={{ textDecoration: "none" }}
               >
-                {page}
-              </Button>
+                <Button
+                  // onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "black",
+                    display: "block",
+                    textTransform: "none",
+                    fontSize: "medium",
+                    fontFamily: "Lovelo",
+                  }}
+                >
+                  {page}
+                </Button>
               </Link>
             ))}
           </Box>
@@ -94,12 +163,11 @@ function Header() {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              
+              onClick={toggleDrawer}
             >
-              <MenuIcon sx={{color:"black"}} />
+              <MenuIcon sx={{ color: "black" }} />
             </IconButton>
-            <Menu
+            {/* <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -115,23 +183,60 @@ function Header() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
-               
               }}
             >
-              <Paper elevation={0}  sx={{ width: '100vw',height:"auto"}}>
-                {pages.map((page,index) => (
-                  <Link key={page} href={page.toLowerCase()} style={{textDecoration:"none",color:"black"}}>
-                  <MenuItem  onClick={handleCloseNavMenu}  style={{ marginBottom: index < pages.length - 1 ? '50px' : 0}}>
-                    <Typography  sx={{width:"100%"}}>{page}</Typography>
-                  </MenuItem>
+              <Paper elevation={0} sx={{ width: "100vw", height: "auto" }}>
+                {pages.map((page, index) => (
+                  <Link
+                    key={page}
+                    href={page.toLowerCase()}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <MenuItem
+                      onClick={handleCloseNavMenu}
+                      style={{
+                        marginBottom: index < pages.length - 1 ? "50px" : 0,
+                      }}
+                    >
+                      <Typography sx={{ width: "100%", fontFamily: "Lovelo" }}>
+                        {page}
+                      </Typography>
+                    </MenuItem>
                   </Link>
                 ))}
               </Paper>
-            </Menu>
+            </Menu> */}
+             <Drawer
+            anchor={'top'}
+            open={drawerOpen}
+            onClose={toggleDrawer}
+            
+       
+          >
+             <Paper elevation={0} sx={{ width: "100vw", height: "50vh",background:"#ffc300", }}>
+                {pages.map((page, index) => (
+                  <Link
+                    key={page}
+                    href={page.toLowerCase()}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <MenuItem
+                      onClick={toggleDrawer}
+                      style={{
+                        marginBottom: index < pages.length - 1 ? "50px" : 0,
+                      }}
+                    >
+                      <Typography sx={{ width: "100%", fontFamily: "Lovelo" }}>
+                        {page}
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+                ))}
+              </Paper>
+          </Drawer>
           </Box>
         </Toolbar>
       </Container>
-      
     </AppBar>
   );
 }

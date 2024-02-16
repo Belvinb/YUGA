@@ -228,3 +228,10 @@
     transform: rotate(0deg);
   }
 }
+
+.testFont { 
+  font-family: 'Rubik' , sans-serif; 
+  font-weight: bold; 
+  color: green; 
+  font-size: 3rem; 
+}

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Button, Container, Grid, useMediaQuery, useTheme} from "@mui/material"
+import {  Grid, useMediaQuery, useTheme} from "@mui/material"
 // import { useEffect } from "react";
 import Banner from "@/models/bannerModel";
 import connectDB from "@/lib/db";
@@ -38,6 +38,8 @@ export default function  About() {
           height={0}
           style={{height:"auto",width: isSmallScreen ? "100%" : "50%"}}
           sizes="100vw"
+          priority
+          quality={65}
         />
       </Grid>
      
