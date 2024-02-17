@@ -84,7 +84,7 @@ function Header() {
                 textTransform:"none"
               }}
             >
-              Architechtural Studio
+              Architectural Studio
             </Typography>
           </Grid>
 
@@ -121,7 +121,7 @@ function Header() {
                 fontSize: "0.6rem",
               }}
             >
-              Architechtural Studio
+              Architectural Studio
             </Typography>
           </Grid>
           

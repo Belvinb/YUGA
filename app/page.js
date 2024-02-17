@@ -31,17 +31,10 @@ const parameters = {
 export default function Home() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  //   const banner = await getBanners();
-  //   console.log(banner)
-  console.log(bannerData, "sdfsdf");
-  //  console.log(final)
-  // const { data, error, isLoading } = useSWR('/api/bannerimage', fetcher,parameters)
-  // let carouseldata
-  // if(data){
+  const { data, error, isLoading } = useSWR('/api/get-featured-product', fetcher,parameters)
+console.log(data)
 
-  //   carouseldata = data[0].images
-  // }
-  // console.log(carouseldata)
+
 
   return (
     <Grid>
@@ -54,7 +47,7 @@ export default function Home() {
               height={0}
               style={{
                 width: "100%",
-                height: isSmallScreen ? "40vh" : "auto",
+                height: isSmallScreen ? "35vh" : "auto",
                 maxHeight: "86vh",
                 // minHeight: isSmallScreen ? "40vh" : "86vh",
                 transform: "scale(1.02)",
@@ -69,33 +62,24 @@ export default function Home() {
           </Grid>
         ))}
       </Carousel>
-      <Grid container padding={3} spacing={2}>
-        <Grid item xs={12} md={6}>
+      <Grid container padding={3} spacing={4}>
+{data?.map((item)=>(
+
+        <Grid key={item._id} item xs={12} md={6}>
           <Image
-            src="/sample1.webp"
+            src={item.main_image}
             width={0}
             height={0}
-            style={{ width: "100%", maxHeight: "85vh", height: "auto" }}
+            style={{ width: "100%", maxHeight: "85vh", height: "auto",transform: "scale(1)" }}
             sizes="100vw"
             loading="lazy"
             quality={65}
             alt={`sample1`}
           />
-          <h1>House 1</h1>
+          <p>{item. project_name}</p>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Image
-            src="/sample2.webp"
-            width={0}
-            height={0}
-            style={{ width: "100%", maxHeight: "86vh", height: "auto" }}
-            sizes="65vw"
-            loading="lazy"
-            quality={65}
-            alt={`sample1`}
-          />
-          <h1>House 2</h1>
-        </Grid>
+))}
+      
       </Grid>
     </Grid>
   );

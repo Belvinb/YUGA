@@ -17,17 +17,3 @@ export async function GET() {
   }
 }
 
-export async function POST(req){
-  await connectDB()
-
-  const body = await req.json()
-  const newProject = await Project.create(body)
-  return NextResponse.json(newProject)
-
-  try {
-    
-  } catch (error) {
-    
-  }
-  
-}
