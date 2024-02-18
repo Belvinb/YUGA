@@ -9,8 +9,8 @@ export async function GET(req,{params}) {
 
 const id = params.unique
 console.log(id)  
-    // const featured = await Project.findOne({featured:true});
-    // return NextResponse.json(featured);
+    const featured = await Project.findById(id);
+    return NextResponse.json(featured);
   } catch (error) {
     console.log(error);
   }

@@ -91,6 +91,11 @@ body::-webkit-scrollbar{
   font-weight: normal; 
   font-style: normal; 
 } 
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('../font/Raleway-Regular.ttf');
+}
 /* html,
 body {
   max-width: 100vw;
@@ -144,4 +149,15 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+}
+
+.project-image:hover{
+  
+  opacity: 0.8; /* Reduce opacity on hover */
+
+/* Add a border on hover */
+}
+
+.project-image{
+  transition: opacity 0.3s ease-in-out
 }

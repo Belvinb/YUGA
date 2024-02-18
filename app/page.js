@@ -4,6 +4,7 @@ import Carousel from "react-material-ui-carousel";
 import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import useSWR from "swr";
 import bannerData from "../data/banner.json";
+import Link from "next/link";
 // const getBanners = async () => {
 //   try {
 //     const res = await fetch("http://localhost:3000/api/bannerimage");
@@ -31,10 +32,12 @@ const parameters = {
 export default function Home() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const { data, error, isLoading } = useSWR('/api/get-featured-product', fetcher,parameters)
-console.log(data)
-
-
+  const { data, error, isLoading } = useSWR(
+    "/api/get-featured-product",
+    fetcher,
+    parameters
+  );
+  console.log(data);
 
   return (
     <Grid>
@@ -50,7 +53,7 @@ console.log(data)
                 height: isSmallScreen ? "35vh" : "auto",
                 maxHeight: "86vh",
                 // minHeight: isSmallScreen ? "40vh" : "86vh",
-                transform: "scale(1.02)",
+                transform: "scale(0.93)",
               }}
               sizes="100vw"
               priority
@@ -62,24 +65,32 @@ console.log(data)
           </Grid>
         ))}
       </Carousel>
-      <Grid container padding={3} spacing={4}>
-{data?.map((item)=>(
+      <Grid container padding={{xs:2,md:7}} spacing={2}>
+        {data?.map((item) => (
+          <Grid key={item._id} item xs={12} md={6}>
+              <Link href={`/projects/${item._id}`}
+                style={{ textDecoration: "none" }}>
+            <Image
+              src={item.main_image}
+              width={0}
+              height={0}
+              style={{
+                width: "100%",
+                height: isSmallScreen ? "35vh" : "55vh",
+                transform: "scale(1)",
+                cursor: "pointer",
+              }}
+              sizes="100vw"
+              loading="lazy"
+              quality={65}
+              alt={item.project_name}
+              className="project-image"
+            />
 
-        <Grid key={item._id} item xs={12} md={6}>
-          <Image
-            src={item.main_image}
-            width={0}
-            height={0}
-            style={{ width: "100%", maxHeight: "85vh", height: "auto",transform: "scale(1)" }}
-            sizes="100vw"
-            loading="lazy"
-            quality={65}
-            alt={`sample1`}
-          />
-          <p>{item. project_name}</p>
-        </Grid>
-))}
-      
+            </Link>
+            <p>{item.project_name}</p>
+          </Grid>
+        ))}
       </Grid>
     </Grid>
   );

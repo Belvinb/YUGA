@@ -16,18 +16,24 @@ import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
 import styles from "../app/page.module.css";
-import { Grid } from "@mui/material";
-import Drawer from '@mui/material/Drawer';
-
+import { Grid,useLocation } from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+import { useRouter,usePathname } from "next/navigation";
 
 const pages = ["Projects", "About", "Contact"];
 
 // const myFont = localFont({ src: '../public/font/Lovelo-Black.woff2' })
 function Header() {
+  const router = useRouter();
+  const pathname = usePathname()
+  console.log(pathname,"pathh")
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [drawerOpen,setDrawerOpen] = React.useState(false)
-  const toggleDrawer =  (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const toggleDrawer = (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
@@ -43,7 +49,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="sticky" sx={{ background: "white" }}>
+    <AppBar position="sticky" sx={{ background: "#ffffff",boxShadow:"none"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ height: 100, alignItems: "center" }}>
           <Link href="/">
@@ -55,7 +61,7 @@ function Header() {
               priority
             />
           </Link>
-          <Grid >
+          <Grid>
             <Typography
               variant="h4"
               noWrap
@@ -80,8 +86,8 @@ function Header() {
                 display: { xs: "none", md: "flex" },
                 color: "black",
                 fontFamily: "Lovelo", // Use any font family you prefer
-                fontSize: "0.7rem",
-                textTransform:"none"
+                fontSize: "0.8rem",
+                textTransform: "none",
               }}
             >
               Architectural Studio
@@ -90,7 +96,6 @@ function Header() {
 
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Grid container direction="column">
-
             <Typography
               variant="h5"
               noWrap
@@ -111,7 +116,7 @@ function Header() {
               YUGA
             </Typography>
             <Typography
-            noWrap
+              noWrap
               variant="subtitle2"
               sx={{
                 mr: 2,
@@ -124,8 +129,7 @@ function Header() {
               Architectural Studio
             </Typography>
           </Grid>
-          
-          
+
           <Box
             mr={5}
             sx={{
@@ -135,25 +139,27 @@ function Header() {
             }}
           >
             {pages.map((page) => (
-              <Link
+              // <Link
+              //   key={page}
+              //   href={page.toLowerCase()}
+              //   style={{ textDecoration: "none" }}
+              //   shallow
+              // >
+              <Button
                 key={page}
-                href={page.toLowerCase()}
-                style={{ textDecoration: "none" }}
+                onClick={() => router.replace(`/${page.toLowerCase()}`)}
+                sx={{
+                  my: 2,
+                  color: pathname == `/${page.toLowerCase()}` ? '#ffc300':'black',
+                  display: "block",
+                  textTransform: "none",
+                  fontSize: "medium",
+                  fontFamily: "Lovelo",
+                }}
               >
-                <Button
-                  // onClick={handleCloseNavMenu}
-                  sx={{
-                    my: 2,
-                    color: "black",
-                    display: "block",
-                    textTransform: "none",
-                    fontSize: "medium",
-                    fontFamily: "Lovelo",
-                  }}
-                >
-                  {page}
-                </Button>
-              </Link>
+                {page}
+              </Button>
+              // </Link>
             ))}
           </Box>
 
@@ -206,34 +212,35 @@ function Header() {
                 ))}
               </Paper>
             </Menu> */}
-             <Drawer
-            anchor={'top'}
-            open={drawerOpen}
-            onClose={toggleDrawer}
-            
-       
-          >
-             <Paper elevation={0} sx={{ width: "100vw", height: "50vh",background:"#ffc300", }}>
+            <Drawer anchor={"top"} open={drawerOpen} onClose={toggleDrawer}>
+              <Paper
+                elevation={0}
+                sx={{ width: "100vw", height: "50vh", background: "#ffc300" }}
+              >
                 {pages.map((page, index) => (
-                  <Link
+                  // <Link
+                  //   key={page}
+                  //   href={page.toLowerCase()}
+                  //   style={{ textDecoration: "none", color: "black" }}
+                  // >
+                  <MenuItem
+                    onClick={(e) => {
+                      toggleDrawer(e)
+                      router.replace(`/${page.toLowerCase()}`);
+                    }}
                     key={page}
-                    href={page.toLowerCase()}
-                    style={{ textDecoration: "none", color: "black" }}
+                    style={{
+                      marginBottom: index < pages.length - 1 ? "50px" : 0,
+                    }}
                   >
-                    <MenuItem
-                      onClick={toggleDrawer}
-                      style={{
-                        marginBottom: index < pages.length - 1 ? "50px" : 0,
-                      }}
-                    >
-                      <Typography sx={{ width: "100%", fontFamily: "Lovelo" }}>
-                        {page}
-                      </Typography>
-                    </MenuItem>
-                  </Link>
+                    <Typography sx={{ width: "100%", fontFamily: "Lovelo" }}>
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                  // </Link>
                 ))}
               </Paper>
-          </Drawer>
+            </Drawer>
           </Box>
         </Toolbar>
       </Container>
