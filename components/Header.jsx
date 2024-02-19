@@ -26,7 +26,7 @@ const pages = ["Projects", "About", "Contact"];
 function Header() {
   const router = useRouter();
   const pathname = usePathname()
-  console.log(pathname,"pathh")
+ 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const toggleDrawer = (event) => {

@@ -2,6 +2,7 @@
 import useSWR from "swr";
 import { Grid, useTheme, useMediaQuery } from "@mui/material";
 import Image from "next/image";
+import { PreLoader } from "@/components";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const parameters = {
@@ -23,6 +24,11 @@ export default function SingleProject({ params }) {
     parameters
   );
   console.log(data);
+  if(isLoading){
+    return(
+      <PreLoader/>
+    )
+  }
   return (
     <Grid container>
       <Grid container item xs={12}>
@@ -56,7 +62,7 @@ export default function SingleProject({ params }) {
             cursor: "pointer",
           }}
           sizes="100vw"
-          loading="lazy"
+         
           quality={65}
           alt={`sample1`}
         />

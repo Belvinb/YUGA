@@ -6,6 +6,7 @@ import Banner from "@/models/bannerModel";
 import connectDB from "@/lib/db";
 // import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
+import { PreLoader } from "@/components";
 
 export default function About() {
   const theme = useTheme();

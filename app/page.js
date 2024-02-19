@@ -5,6 +5,7 @@ import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import useSWR from "swr";
 import bannerData from "../data/banner.json";
 import Link from "next/link";
+import { PreLoader } from "@/components";
 // const getBanners = async () => {
 //   try {
 //     const res = await fetch("http://localhost:3000/api/bannerimage");
@@ -38,6 +39,12 @@ export default function Home() {
     parameters
   );
   console.log(data);
+
+  if(isLoading){
+    return(
+      <PreLoader/>
+    )
+  }
 
   return (
     <Grid>
@@ -76,7 +83,7 @@ export default function Home() {
               height={0}
               style={{
                 width: "100%",
-                height: isSmallScreen ? "35vh" : "55vh",
+                height: isSmallScreen ? "32vh" : "50vh",
                 transform: "scale(1)",
                 cursor: "pointer",
               }}

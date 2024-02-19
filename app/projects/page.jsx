@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { Grid, useTheme, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { PreLoader } from "@/components";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const parameters = {
@@ -24,7 +25,11 @@ export default function Project() {
     fetcher,
     parameters
   );
-
+  if(isLoading){
+    return(
+      <PreLoader/>
+    )
+  }
   return (
     <Grid container   paddingLeft={{xs:2,md:7}} paddingRight={{xs:2,md:7}} spacing={3}>
       {data?.map((item) => (
@@ -37,12 +42,12 @@ export default function Project() {
             height={0}
             style={{
               width: "100%",
-              height: isSmallScreen ? "35vh" : "55vh",
+              height: isSmallScreen ? "32vh" : "50vh",
               transform: "scale(1)",
               cursor: "pointer",
             }}
             sizes="100vw"
-            loading="lazy"
+          
             quality={65}
             alt={`sample1`}
             className="project-image"
