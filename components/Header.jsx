@@ -212,10 +212,10 @@ function Header() {
                 ))}
               </Paper>
             </Menu> */}
-            <Drawer anchor={"top"} open={drawerOpen} onClose={toggleDrawer}>
+            <Drawer anchor={"left"} open={drawerOpen} onClose={toggleDrawer}>
               <Paper
                 elevation={0}
-                sx={{ width: "100vw", height: "50vh", background: "#ffc300" }}
+                sx={{ width: "80vw", height: "100vh", background: "#ffc300" }}
               >
                 {pages.map((page, index) => (
                   // <Link
