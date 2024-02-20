@@ -30,7 +30,7 @@ export default function SingleProject({ params }) {
     )
   }
   return (
-    <Grid container>
+    <Grid container  spacing={3}>
       <Grid container item xs={12}>
         <Image
           src={data?.main_image}
@@ -48,20 +48,22 @@ export default function SingleProject({ params }) {
           alt={`sample1`}
         />
       </Grid>
+      
       {data?.project_images.map((item)=>(
 
-      <Grid item xs={12} p={3} >
+      <Grid container item xs={12} mt={2} sx={{position:"relative",paddingBottom:"60%"}} >
       <Image
           src={item}
-          width={0}
-          height={0}
-          style={{
-            width: "100%",
-            height: "auto",
-            transform: "scale(1)",
-            cursor: "pointer",
-          }}
-          sizes="100vw"
+          fill
+          // width={0}
+          // height={0}
+          // style={{
+          //   width: "100%",
+          //   height: "auto",
+          //   transform: "scale(1)",
+          //   cursor: "pointer",
+          // }}
+          sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
          
           quality={65}
           alt={`sample1`}

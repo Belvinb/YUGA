@@ -50,25 +50,32 @@ export default function Home() {
     <Grid>
       <Carousel>
         {bannerData.images?.map((item, index) => (
-          <Grid container key={index}>
+          <Grid container key={index} >
+            <Grid item xs={12} sx={{position:"relative",paddingBottom:"60%"}}>
+
             <Image
               src={item.url}
-              width={0}
-              height={0}
+              fill
+              // width={0}
+              // height={0}
+              // style={{
+              //   width: "auto",
+              //   height: isSmallScreen ? "35vh" : "100vh",
+              //   // maxHeight: "100vh",
+              //   // minHeight: isSmallScreen ? "40vh" : "86vh",
+              //   transform: "scale(1)",
+              // }}
               style={{
-                width: "100%",
-                height: isSmallScreen ? "35vh" : "auto",
-                maxHeight: "86vh",
-                // minHeight: isSmallScreen ? "40vh" : "86vh",
-                transform: "scale(0.93)",
+                cursor:"pointer"
               }}
-              sizes="100vw"
+              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
               priority
               quality={65}
               alt={`sample${index + 1}`}
-              placeholder="blur"
-              blurDataURL="/sample1.webp"
+              // placeholder="blur"
+              // blurDataURL="/sample1.webp"
             />
+            </Grid>
           </Grid>
         ))}
       </Carousel>
@@ -77,22 +84,30 @@ export default function Home() {
           <Grid key={item._id} item xs={12} md={6}>
               <Link href={`/projects/${item._id}`}
                 style={{ textDecoration: "none" }}>
+                        <div style={{ position: "relative", paddingBottom: "60%" /* Aspect ratio 4:3 */ }}>
+
             <Image
               src={item.main_image}
-              width={0}
-              height={0}
+              fill
+              // width={0}
+              // height={0}
+              // style={{
+              //   width: "100%",
+              //   height: isSmallScreen ? "32vh" : "50vh",
+              //   transform: "scale(1)",
+              //   cursor: "pointer",
+              // }}
               style={{
-                width: "100%",
-                height: isSmallScreen ? "32vh" : "50vh",
-                transform: "scale(1)",
-                cursor: "pointer",
+                cursor:"pointer"
               }}
-              sizes="100vw"
+              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
+             
               loading="lazy"
               quality={65}
               alt={item.project_name}
               className="project-image"
             />
+                        </div>
 
             </Link>
             <p>{item.project_name}</p>

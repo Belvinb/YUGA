@@ -25,37 +25,36 @@ export default function Project() {
     fetcher,
     parameters
   );
-  if(isLoading){
-    return(
-      <PreLoader/>
-    )
+  if (isLoading) {
+    return <PreLoader />;
   }
   return (
-    <Grid container   paddingLeft={{xs:2,md:7}} paddingRight={{xs:2,md:7}} spacing={3}>
+    <Grid
+      container
+      paddingLeft={{ xs: 2, md: 7 }}
+      paddingRight={{ xs: 2, md: 7 }}
+      spacing={3}
+    >
       {data?.map((item) => (
-        <Grid key={item._id} item xs={12} md={6}>
-            <Link href={`/projects/${item._id}`}
-                style={{ textDecoration: "none" }}>
-          <Image
-            src={item.main_image}
-            width={0}
-            height={0}
-            style={{
-              width: "100%",
-              height: isSmallScreen ? "32vh" : "50vh",
-              transform: "scale(1)",
-              cursor: "pointer",
-            }}
-            sizes="100vw"
-          
-            quality={65}
-            alt={`sample1`}
-            className="project-image"
+      <Grid key={item._id} item xs={12} sm={6} >
+      <Link href={`/projects/${item._id}`} passHref>
+        
+          <div style={{ position: "relative", paddingBottom: "60%" /* Aspect ratio 4:3 */ }}>
+            <Image
+              src={item.main_image}
+              fill
+              style={{cursor:"pointer"}}
             
-          />
-            </Link>
-          <p>{item.project_name}</p>
-        </Grid>
+              quality={60}
+              alt={`sample1`}
+              className="project-image"
+              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
+            />
+          </div>
+        
+      </Link>
+      <p>{item.project_name}</p>
+    </Grid>
       ))}
     </Grid>
   );
