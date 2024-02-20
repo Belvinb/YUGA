@@ -63,9 +63,9 @@ export default function SingleProject({ params }) {
           //   transform: "scale(1)",
           //   cursor: "pointer",
           // }}
-          sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
+          sizes="(max-width: 768px) 65vw, (max-width: 1200px) 75vw, 100vw"
          
-          quality={65}
+          // quality={65}
           alt={`sample1`}
         />
 

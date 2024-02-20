@@ -45,10 +45,10 @@ export default function Project() {
               fill
               style={{cursor:"pointer"}}
             
-              quality={60}
+              // quality={65}
               alt={`sample1`}
               className="project-image"
-              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
+              sizes="(max-width: 768px) 65vw, (max-width: 1200px) 75vw, 100vw"
             />
           </div>
         
