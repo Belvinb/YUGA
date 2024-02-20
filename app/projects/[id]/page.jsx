@@ -31,20 +31,23 @@ export default function SingleProject({ params }) {
   }
   return (
     <Grid container  spacing={3}>
-      <Grid container item xs={12}>
+      <Grid container item xs={12} sx={{position:"relative",paddingBottom:"60%"}}>
         <Image
           src={data?.main_image}
-          width={0}
-          height={0}
-          style={{
-            width: "100%",
-            height: "auto",
-            transform: "scale(1)",
-            cursor: "pointer",
-          }}
-          sizes="100vw"
+          // width={0}
+          // height={0}
+          // style={{
+          //   width: "100%",
+          //   height: "auto",
+          //   transform: "scale(1)",
+          //   cursor: "pointer",
+          // }}
+          // sizes="100vw"
+          // priority
+          // quality={65}
+          fill
           priority
-          quality={65}
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
           alt={`sample1`}
         />
       </Grid>
@@ -63,10 +66,11 @@ export default function SingleProject({ params }) {
           //   transform: "scale(1)",
           //   cursor: "pointer",
           // }}
-          sizes="(max-width: 768px) 65vw, (max-width: 1200px) 75vw, 100vw"
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
          
           // quality={65}
           alt={`sample1`}
+          loading="lazy"
         />
 
       </Grid>

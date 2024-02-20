@@ -48,7 +48,8 @@ export default function Project() {
               // quality={65}
               alt={`sample1`}
               className="project-image"
-              sizes="(max-width: 768px) 65vw, (max-width: 1200px) 75vw, 100vw"
+              sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
+              loading="lazy"
             />
           </div>
         

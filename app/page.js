@@ -68,9 +68,9 @@ export default function Home() {
               style={{
                 cursor:"pointer"
               }}
-              sizes="(max-width: 768px) 40vw, (max-width: 1200px) 65vw, 100vw"
+              sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
               priority
-              quality={65}
+              // quality={65}
               alt={`sample${index + 1}`}
               // placeholder="blur"
               // blurDataURL="/sample1.webp"
@@ -100,7 +100,7 @@ export default function Home() {
               style={{
                 cursor:"pointer"
               }}
-              sizes="(max-width: 768px) 65vw, (max-width: 1200px) 75vw, 100vw"
+              sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
              
               loading="lazy"
               // quality={65}
