@@ -51,7 +51,7 @@ export default function Home() {
       <Carousel>
         {bannerData.images?.map((item, index) => (
           <Grid container key={index} >
-            <Grid item xs={12} sx={{position:"relative",paddingBottom:"60%"}}>
+            <Grid item xs={12} sx={{position:"relative",paddingBottom:"65%"}}>
 
             <Image
               src={item.url}
@@ -84,7 +84,7 @@ export default function Home() {
           <Grid key={item._id} item xs={12} md={6}>
               <Link href={`/projects/${item._id}`}
                 style={{ textDecoration: "none" }}>
-                        <div style={{ position: "relative", paddingBottom: "60%" /* Aspect ratio 4:3 */ }}>
+                        <div style={{ position: "relative", paddingBottom: "65%" /* Aspect ratio 4:3 */ }}>
 
             <Image
               src={item.main_image}

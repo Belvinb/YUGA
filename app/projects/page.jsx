@@ -39,7 +39,7 @@ export default function Project() {
       <Grid key={item._id} item xs={12} sm={6} >
       <Link href={`/projects/${item._id}`} passHref>
         
-          <div style={{ position: "relative", paddingBottom: "60%" /* Aspect ratio 4:3 */ }}>
+          <div style={{ position: "relative", paddingBottom: "65%" /* Aspect ratio 4:3 */ }}>
             <Image
               src={item.main_image}
               fill
