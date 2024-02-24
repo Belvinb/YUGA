@@ -46,7 +46,7 @@ export default function SingleProject({ params }) {
           // priority
           // quality={65}
           fill
-          priority
+         loading="lazy"
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
           alt={`sample1`}
         />
@@ -54,7 +54,7 @@ export default function SingleProject({ params }) {
       
       {data?.project_images.map((item)=>(
 
-      <Grid container item xs={12} mt={2} sx={{position:"relative",paddingBottom:"65%"}} >
+      <Grid key={item} container item xs={12} mt={2} sx={{position:"relative",paddingBottom:"65%"}} >
       <Image
           src={item}
           fill
