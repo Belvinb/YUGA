@@ -39,17 +39,18 @@ export default function About() {
           width={0}
           height={0}
           style={{ height: "auto", width: isSmallScreen ? "100%" : "100%" }}
-          sizes="100vw"
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
           
           quality={65}
         />
       </Grid>
-      <Grid item xs={12} md={6} padding={3} sx={{position:"relative",paddingBottom:"90%",margin:{xs:"1.5rem",md:"0"}}} >
+      <Grid item xs={12} md={6} padding={3} flex>
         <Image
           src="https://res.cloudinary.com/dttpvfcz1/image/upload/v1708922902/yuga/about/jev5cqskgtlijhhxbds9.jpg"
           alt="about"
-          fill
-         loading="lazy"
+          width={0}
+          height={0}
+          style={{ height: "auto", width: isSmallScreen ? "100%" : "100%" }}
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
         
         />

@@ -20,6 +20,12 @@ const projectSchema = new Schema({
     featured:{
         type:Boolean,
         default:false
+    },
+    location:{
+        type:String
+    },
+    priority:{
+        type:Number
     }
 
 })
