@@ -31,7 +31,7 @@ export default function SingleProject({ params }) {
   }
   return (
     <Grid container  spacing={3}>
-      <Grid container item xs={12} sx={{position:"relative",paddingBottom:"65%"}}>
+      <Grid container item xs={12} sx={{position:"relative",paddingBottom:"calc(56.25% + 1.5em)"}}>
         <Image
           src={data?.main_image}
           // width={0}
@@ -51,6 +51,7 @@ export default function SingleProject({ params }) {
           alt={`sample1`}
         />
       </Grid>
+      
       
       {data?.project_images.map((item)=>(
 

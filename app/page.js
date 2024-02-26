@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
-import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Grid, useMediaQuery, useTheme ,Typography} from "@mui/material";
 import useSWR from "swr";
 import bannerData from "../data/banner.json";
 import Link from "next/link";
@@ -110,7 +110,7 @@ export default function Home() {
                         </div>
 
             </Link>
-            <p>{item.project_name}</p>
+            <Typography variant="h5" sx={{fontFamily:"Raleway"}}>{item.project_name}</Typography>
           </Grid>
         ))}
       </Grid>

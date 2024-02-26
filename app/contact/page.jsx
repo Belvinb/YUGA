@@ -2,6 +2,9 @@
 // import sendEmail from "@/utils/Email";
 import { Grid, Typography,TextField,Button,Form } from "@mui/material";
 import { useState } from "react";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import Link from "next/link";
 
 export default function Contact() {
   const [formValues,setFormValues] = useState(
@@ -40,8 +43,8 @@ setFormValues({...formValues,[e.target.name]:e.target.value})
           Contact
         </Typography>
       </Grid>
-      <Grid container  item xs={12} md={6} flex sx={{justifyContent:'center',textAlign:"center"}}>
-        <Grid item>
+      <Grid container  item xs={12} md={6} flex flexWrap={"wrap"} sx={{justifyContent:'center',textAlign:"center"}}>
+        <Grid item >
 
         
         <Typography variant="h5"  >
@@ -56,6 +59,20 @@ setFormValues({...formValues,[e.target.name]:e.target.value})
             Kerala, 673579
             
         </Typography>
+        <Typography variant="h6" >
+            Phone: 
+            
+        </Typography>
+        <Typography variant="h6" >
+            Email: yugaarchitecturalstudio@gmail.com
+            
+        </Typography>
+        <Link href="https://www.instagram.com/yugarchitects/" target="_blank">
+        <InstagramIcon sx={{color:"#E4405F",fontSize:"45px",cursor:"pointer"}}/>
+        </Link>
+        <Link href="https://www.facebook.com/YUGAarchitecturalstudio/" target="_blank">
+        <FacebookIcon sx={{color:"#1877F2",fontSize:"45px",cursor:"pointer"}}/>
+        </Link>
         </Grid>
       </Grid>
       

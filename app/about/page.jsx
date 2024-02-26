@@ -28,56 +28,64 @@ export default function About() {
 
   return (
     <Grid container>
+        <Grid container item xs={12} md={6} padding={4} flex justifyContent={"center"} alignItems={"center"}>
+        <Typography variant="h4" sx={{fontFamily:"Raleway"}} >About Y U G A</Typography>
+
+      </Grid>
       <Grid item xs={12} md={6} padding={3} sx={{ display: "flex" }}>
         <Image
-          src={"/sample2.webp"}
+          src= "https://res.cloudinary.com/dttpvfcz1/image/upload/v1708922902/yuga/about/zd70blk6y4zebkccdue8.jpg"
           alt="about"
           width={0}
           height={0}
           style={{ height: "auto", width: isSmallScreen ? "100%" : "100%" }}
           sizes="100vw"
-          priority
+          
           quality={65}
         />
       </Grid>
-      <Grid container>
-        <Grid item xs={12} md={6} padding={4}>
-          About Y U G A
-        </Grid>
-
-      <Grid
-        item
-        xs={12}
-        md={6}
-        padding={2}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center", // Horizontal centering
+      <Grid item xs={12} md={6} padding={3} sx={{position:"relative",paddingBottom:"90%",margin:{xs:"1.5rem",md:"0"}}} >
+        <Image
+          src="https://res.cloudinary.com/dttpvfcz1/image/upload/v1708922902/yuga/about/jev5cqskgtlijhhxbds9.jpg"
+          alt="about"
+          fill
+         loading="lazy"
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
         
-          fontFamily: "Raleway",
-          
-        }}
-      >
-        <Typography>
-          Y U G A started in 2019 back in the days when the founders' started
-          practicing independently, as a small office at home, which gave the
-          comfort of home space with the flexibility of work space. When the
-          firm expanded in 2020, the small home office perception stuck and is
-          hence augmented to Y U G A Y U G A believe in the simplicity and
-          humbleness of a design which shapes the project into a sensible work
-          of art. We approaches the design as a process which beautifully
-          unfolds into a series of ideas and relentlessly we work up on it to
-          nurture the project. We believe the designs evolve with time, which
-          naturally weaves itself, often astonished b y the ultimate outcome
-          evolving from our distinct ideas. We encourage our clients to do what
-          they do the best, to dream without inhibitions. Then we get to work
-          doing what we do the best, transforming them into designs that house
-          their bigger dreams
-        </Typography>
-      </Grid>
+        />
       </Grid>
 
+    
+        <Grid
+          item
+          xs={12}
+          md={6}
+          padding={2}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center", // Horizontal centering
+
+            fontFamily: "Raleway",
+          }}
+        >
+          <Typography>
+            Y U G A started in 2019 back in the days when the founders' started
+            practicing independently, as a small office at home, which gave the
+            comfort of home space with the flexibility of work space. When the
+            firm expanded in 2020, the small home office perception stuck and is
+            hence augmented to Y U G A . Y U G A believe in the simplicity and
+            humbleness of a design which shapes the project into a sensible work
+            of art. We approaches the design as a process which beautifully
+            unfolds into a series of ideas and relentlessly we work up on it to
+            nurture the project. We believe the designs evolve with time, which
+            naturally weaves itself, often astonished b y the ultimate outcome
+            evolving from our distinct ideas. We encourage our clients to do
+            what they do the best, to dream without inhibitions. Then we get to
+            work doing what we do the best, transforming them into designs that
+            house their bigger dreams
+          </Typography>
+        </Grid>
     </Grid>
   );
 }

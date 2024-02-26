@@ -1,6 +1,6 @@
 "use client";
 import useSWR from "swr";
-import { Grid, useTheme, useMediaQuery } from "@mui/material";
+import { Grid, useTheme, useMediaQuery,Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { PreLoader } from "@/components";
@@ -54,7 +54,8 @@ export default function Project() {
           </div>
         
       </Link>
-      <p>{item.project_name}</p>
+      <Typography variant="h5" sx={{fontFamily:"Raleway"}}>{item.project_name}</Typography>
+
     </Grid>
       ))}
     </Grid>
