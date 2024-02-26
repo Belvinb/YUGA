@@ -12,8 +12,8 @@ const sendEmail = async(html) =>{
   
 
     const mailOptions = {
-        from:'belvinpulimoottil@gmail.com',
-        to:'belvinbbenny@gmail.com',
+        from:'mailatyuga@gmail.com',
+        to:'yugaarchitecturalstudio@gmail.com',
         subject:'Yuga in-mail',
         html:`<div>
         <p>Name: ${html.name}</p>
