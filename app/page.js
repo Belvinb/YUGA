@@ -79,7 +79,7 @@ export default function Home() {
           </Grid>
         ))}
       </Carousel>
-      <Grid container padding={{xs:2,md:7}} spacing={2}>
+      <Grid container padding={{xs:2,md:7}} spacing={2} rowGap={2}>
         {data?.map((item) => (
           <Grid key={item._id} item xs={12} md={6}>
               <Link href={`/projects/${item._id}`}
@@ -110,7 +110,7 @@ export default function Home() {
                         </div>
 
             </Link>
-            <Typography variant="h5" sx={{fontFamily:"Raleway"}}>{item.project_name}</Typography>
+            <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem"}}>{item.project_name}</Typography>
           </Grid>
         ))}
       </Grid>

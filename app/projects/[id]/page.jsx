@@ -1,6 +1,6 @@
 "use client";
 import useSWR from "swr";
-import { Grid, useTheme, useMediaQuery } from "@mui/material";
+import { Grid, useTheme, useMediaQuery,Typography } from "@mui/material";
 import Image from "next/image";
 import { PreLoader } from "@/components";
 
@@ -24,14 +24,12 @@ export default function SingleProject({ params }) {
     parameters
   );
   console.log(data);
-  if(isLoading){
-    return(
-      <PreLoader/>
-    )
+  if (isLoading) {
+    return <PreLoader />;
   }
   return (
-    <Grid container  spacing={3}>
-      <Grid container item xs={12} sx={{position:"relative",paddingBottom:"calc(56.25% + 1.5em)"}}>
+    <Grid container spacing={3}>
+      <Grid item xs={12} sx={{ position: "relative", paddingBottom: "65%" }}>
         <Image
           src={data?.main_image}
           // width={0}
@@ -45,36 +43,48 @@ export default function SingleProject({ params }) {
           // sizes="100vw"
           // priority
           // quality={65}
-          fill
-         loading="lazy"
-          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-          alt={`sample1`}
-        />
-      </Grid>
-      
-      
-      {data?.project_images.map((item)=>(
 
-      <Grid key={item} container item xs={12} mt={2} sx={{position:"relative",paddingBottom:"65%"}} >
-      <Image
-          src={item}
           fill
-          // width={0}
-          // height={0}
-          // style={{
-          //   width: "100%",
-          //   height: "auto",
-          //   transform: "scale(1)",
-          //   cursor: "pointer",
-          // }}
-          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-         
-          // quality={65}
-          alt={`sample1`}
           loading="lazy"
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
+          alt={`sample1`}
         />
-
       </Grid>
+      <Grid container p={{xs:4,md:10}} rowGap={5}>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder"}}>{data?.project_name}</Typography>
+          <Typography>Location: {data?.location}</Typography>
+        </Grid>
+        <Grid item xs={12} md={6} flex flexWrap={"wrap"}>
+          <Typography>{data?.details}</Typography>
+        </Grid>
+      </Grid>
+
+      {data?.project_images.map((item) => (
+        <Grid
+          key={item}
+          item
+          xs={12}
+          mt={2}
+          sx={{ position: "relative", paddingBottom: "65%" }}
+        >
+          <Image
+            src={item}
+            fill
+            // width={0}
+            // height={0}
+            // style={{
+            //   width: "100%",
+            //   height: "auto",
+            //   transform: "scale(1)",
+            //   cursor: "pointer",
+            // }}
+            sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
+            // quality={65}
+            alt={`sample1`}
+            loading="lazy"
+          />
+        </Grid>
       ))}
     </Grid>
   );

@@ -37,7 +37,7 @@ setFormValues({...formValues,[e.target.name]:e.target.value})
     <Grid container spacing={3}>
       <Grid item xs={12} mb={5}>
         <Typography
-          variant="h3"
+          variant="h4"
           sx={{ textAlign: "center", fontFamily: "Lovelo" }}
         >
           Contact

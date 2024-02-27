@@ -33,7 +33,8 @@ export default function Project() {
       container
       paddingLeft={{ xs: 2, md: 7 }}
       paddingRight={{ xs: 2, md: 7 }}
-      spacing={3}
+      spacing={2}
+      rowGap={2}
     >
       {data?.map((item) => (
       <Grid key={item._id} item xs={12} sm={6} >
@@ -54,7 +55,7 @@ export default function Project() {
           </div>
         
       </Link>
-      <Typography variant="h5" sx={{fontFamily:"Raleway"}}>{item.project_name}</Typography>
+      <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem"}}>{item.project_name}</Typography>
 
     </Grid>
       ))}
