@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
-import { Grid, useMediaQuery, useTheme ,Typography} from "@mui/material";
+import { Grid, useMediaQuery, useTheme, Typography } from "@mui/material";
 import useSWR from "swr";
 import bannerData from "../data/banner.json";
 import Link from "next/link";
@@ -26,8 +26,8 @@ const parameters = {
   revalidateOnReconnect: true,
   refreshWhenOffline: false,
   refreshWhenHidden: false,
-  refreshInterval: 0,
-  staleTime: 300000,
+  // refreshInterval: 0,
+  // staleTime: 300000,
 };
 
 export default function Home() {
@@ -40,77 +40,101 @@ export default function Home() {
   );
   console.log(data);
 
-  if(isLoading){
-    return(
-      <PreLoader/>
-    )
+  if (isLoading) {
+    return <PreLoader />;
   }
 
   return (
     <Grid>
       <Carousel>
         {bannerData.images?.map((item, index) => (
-          <Grid container key={index} >
-            <Grid item xs={12} sx={{position:"relative",paddingBottom:"65%"}}>
-
-            <Image
-              src={item.url}
-              fill
-              // width={0}
-              // height={0}
-              // style={{
-              //   width: "auto",
-              //   height: isSmallScreen ? "35vh" : "100vh",
-              //   // maxHeight: "100vh",
-              //   // minHeight: isSmallScreen ? "40vh" : "86vh",
-              //   transform: "scale(1)",
-              // }}
-              style={{
-                cursor:"pointer"
-              }}
-              sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-              priority
-              // quality={65}
-              alt={`sample${index + 1}`}
-              // placeholder="blur"
-              // blurDataURL="/sample1.webp"
-            />
+          <Grid container key={index}>
+            <Grid
+              item
+              xs={12}
+              sx={{ position: "relative", paddingBottom: "65%" }}
+            >
+              <Image
+                src={item.url}
+                fill
+                // width={0}
+                // height={0}
+                // style={{
+                //   width: "auto",
+                //   height: isSmallScreen ? "35vh" : "100vh",
+                //   // maxHeight: "100vh",
+                //   // minHeight: isSmallScreen ? "40vh" : "86vh",
+                //   transform: "scale(1)",
+                // }}
+                style={{
+                  cursor: "pointer",
+                }}
+                sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
+                priority
+                // quality={65}
+                alt={`sample${index + 1}`}
+                // placeholder="blur"
+                // blurDataURL="/sample1.webp"
+              />
             </Grid>
           </Grid>
         ))}
       </Carousel>
-      <Grid container padding={{xs:2,md:7}} spacing={2} rowGap={2}>
+      <Grid container padding={{ xs: 2, md: 7 }} spacing={4} rowGap={2}>
         {data?.map((item) => (
           <Grid key={item._id} item xs={12} md={6}>
-              <Link href={`/projects/${item._id}`}
-                style={{ textDecoration: "none" }}>
-                        <div style={{ position: "relative", paddingBottom: "65%" /* Aspect ratio 4:3 */ }}>
-
-            <Image
-              src={item.main_image}
-              fill
-              // width={0}
-              // height={0}
-              // style={{
-              //   width: "100%",
-              //   height: isSmallScreen ? "32vh" : "50vh",
-              //   transform: "scale(1)",
-              //   cursor: "pointer",
-              // }}
-              style={{
-                cursor:"pointer"
-              }}
-              sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-             
-              loading="lazy"
-              // quality={65}
-              alt={item.project_name}
-              className="project-image"
-            />
-                        </div>
-
+            <Link
+              href={`/projects/${item._id}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  paddingBottom: "65%" /* Aspect ratio 4:3 */,
+                }}
+              >
+                <Image
+                  src={item.main_image}
+                  fill
+                  // width={0}
+                  // height={0}
+                  // style={{
+                  //   width: "100%",
+                  //   height: isSmallScreen ? "32vh" : "50vh",
+                  //   transform: "scale(1)",
+                  //   cursor: "pointer",
+                  // }}
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
+                  loading="lazy"
+                  // quality={65}
+                  alt={item.project_name}
+                  className="project-image"
+                />
+              </div>
             </Link>
-            <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem"}}>{item.project_name}</Typography>
+            <Typography
+              variant="h5"
+              sx={{
+                fontFamily: "Optima",
+                fontWeight: "bolder",
+                paddingTop: "1rem",
+              }}
+            >
+              {item.project_name}
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontFamily: "Optima",
+                fontWeight: "bolder",
+                color:"grey"
+              }}
+            >
+              {item.location}
+            </Typography>
           </Grid>
         ))}
       </Grid>

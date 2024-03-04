@@ -8,7 +8,7 @@ export async function GET() {
     await connectDB();
 
   
-    const featured = await Project.find({featured:true},{project_name:1,_id:1,main_image:1});
+    const featured = await Project.find({featured:true},{project_name:1,_id:1,main_image:1,location:1});
     return NextResponse.json(featured);
   } catch (error) {
     console.log(error);

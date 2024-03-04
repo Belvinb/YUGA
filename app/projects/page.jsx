@@ -12,8 +12,8 @@ const parameters = {
   revalidateOnReconnect: true,
   refreshWhenOffline: false,
   refreshWhenHidden: false,
-  refreshInterval: 0,
-  staleTime: 300000,
+  // refreshInterval: 0,
+  // staleTime: 300000,
 };
 
 export default function Project() {
@@ -33,7 +33,7 @@ export default function Project() {
       container
       paddingLeft={{ xs: 2, md: 7 }}
       paddingRight={{ xs: 2, md: 7 }}
-      spacing={2}
+      spacing={4}
       rowGap={2}
     >
       {data?.map((item) => (

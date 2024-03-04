@@ -8,7 +8,7 @@ export async function GET() {
     await connectDB();
 
   
-    const allprojects = await Project.find({},{_id:1,main_image:1,project_name:1}).sort({priority:1});
+    const allprojects = await Project.find({},{_id:1,main_image:1,project_name:1,location:1}).sort({priority:1});
     return NextResponse.json(allprojects);
   } catch (error) {
     console.log(error);
