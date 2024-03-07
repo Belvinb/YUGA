@@ -38,7 +38,7 @@ export default function About() {
           alt="about"
           width={0}
           height={0}
-          style={{ height: "auto", width: isSmallScreen ? "100%" : "100%" }}
+          style={{ height: "100%", width: isSmallScreen ? "100%" : "100%" }}
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
           
           quality={65}
@@ -50,7 +50,7 @@ export default function About() {
           alt="about"
           width={0}
           height={0}
-          style={{ height: "auto", width: isSmallScreen ? "100%" : "100%" }}
+          style={{ height: "100%", width: isSmallScreen ? "100%" : "100%" }}
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
         
         />
