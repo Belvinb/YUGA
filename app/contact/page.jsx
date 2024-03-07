@@ -39,7 +39,7 @@ export default function Contact() {
       <Grid item xs={12} mb={5}>
         <Typography
           variant="h4"
-          sx={{ textAlign: "center", fontFamily: "Lovelo" }}
+          sx={{ textAlign: "center", fontFamily: "Optima" ,fontWeight:600}}
         >
           Contact
         </Typography>
@@ -54,11 +54,11 @@ export default function Contact() {
         sx={{ justifyContent: "center", textAlign: "center" }}
       >
         <Grid item>
-          <Typography variant="h5">Y U G A - Architectural Studio</Typography>
-          <Typography variant="h6">Thazheyangadi, Pulpally</Typography>
-          <Typography variant="h6">Kerala, 673579</Typography>
-          <Typography variant="h6">Phone:</Typography>
-          <Typography variant="h6">
+          <Typography variant="h5"  sx={{fontFamily:"Optima",fontWeight:600}}>Y U G A - Architectural Studio</Typography>
+          <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Thazheyangadi, Pulpally</Typography>
+          <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Kerala, 673579</Typography>
+          <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Phone:</Typography>
+          <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>
             Email: yugaarchitecturalstudio@gmail.com
           </Typography>
           <Link href="https://www.instagram.com/yugarchitects/" target="_blank">
@@ -90,7 +90,7 @@ export default function Contact() {
         margin={{ xs: 3, md: 0 }}
         gap={2}
       >
-        <Typography variant="h5" textAlign={"center"}>
+        <Typography variant="h5" textAlign={"center"} sx={{fontFamily:"Optima",fontWeight:600}}> 
           Send us a message
         </Typography>
         <Grid>
@@ -143,7 +143,7 @@ export default function Contact() {
             variant="outlined"
           />
         </Grid>
-        <Button type="submit" variant="outlined" sx={{ width: "50%" }}>
+        <Button type="submit" variant="outlined" sx={{ width: "50%",color:"#ffc300" }}>
           Submit
         </Button>
       </Grid>

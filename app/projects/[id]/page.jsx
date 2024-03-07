@@ -55,8 +55,8 @@ export default function SingleProject({ params }) {
           <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder"}}>{data?.project_name}</Typography>
           <Typography>Location: {data?.location}</Typography>
         </Grid>
-        <Grid item xs={12} md={6} flex flexWrap={"wrap"}>
-          <Typography>{data?.details}</Typography>
+        <Grid item xs={12} md={6}  >
+          <pre style={{fontFamily:"Optima",fontSize:"large",fontWeight:600,textAlign:"justify",textJustify:"inter-word",whiteSpace: "pre-wrap",}}>{data?.details}</pre>
         </Grid>
       </Grid>
 

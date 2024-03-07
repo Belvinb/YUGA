@@ -38,9 +38,9 @@ export default function Project() {
     >
       {data?.map((item) => (
       <Grid key={item._id} item xs={12} sm={6} >
-      <Link href={`/projects/${item._id}`} passHref>
+      <Link href={`/projects/${item._id}`} passHref style={{textDecoration:"none"}}  >
         
-          <div style={{ position: "relative", paddingBottom: "65%" /* Aspect ratio 4:3 */ }}>
+          <div style={{ position: "relative", paddingBottom: "65%" /* Aspect ratio 4:3 */ }} className="project-image">
             <Image
               src={item.main_image}
               fill
@@ -48,14 +48,24 @@ export default function Project() {
             
               // quality={65}
               alt={`sample1`}
-              className="project-image"
+              
               sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
               loading="lazy"
             />
           </div>
         
+      <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem", color:"#ffc300"}}>{item.project_name}</Typography>
+      <Typography
+              variant="subtitle2"
+              sx={{
+                fontFamily: "Optima",
+                fontWeight: "bolder",
+                color:"gray"
+              }}
+            >
+              {item.location}
+            </Typography>
       </Link>
-      <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem"}}>{item.project_name}</Typography>
 
     </Grid>
       ))}

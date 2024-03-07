@@ -77,12 +77,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
  
 }
 
-body::-webkit-scrollbar{
+/* body::-webkit-scrollbar{
   display: none;
-}
+} */
 
 
 @font-face { 
@@ -158,11 +159,13 @@ body {
 
 .project-image:hover{
   
-  opacity: 0.8; /* Reduce opacity on hover */
+  opacity: 0.9; /* Reduce opacity on hover */
+  transform: scale(1.02);
 
 /* Add a border on hover */
 }
 
 .project-image{
-  transition: opacity 0.3s ease-in-out
+  transition: opacity 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out
 }

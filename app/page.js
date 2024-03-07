@@ -91,7 +91,9 @@ export default function Home() {
                 style={{
                   position: "relative",
                   paddingBottom: "65%" /* Aspect ratio 4:3 */,
+                  
                 }}
+                className="project-image"
               >
                 <Image
                   src={item.main_image}
@@ -111,16 +113,16 @@ export default function Home() {
                   loading="lazy"
                   // quality={65}
                   alt={item.project_name}
-                  className="project-image"
+                 
                 />
               </div>
-            </Link>
             <Typography
               variant="h5"
               sx={{
                 fontFamily: "Optima",
                 fontWeight: "bolder",
                 paddingTop: "1rem",
+                color:"#ffc300"
               }}
             >
               {item.project_name}
@@ -130,11 +132,12 @@ export default function Home() {
               sx={{
                 fontFamily: "Optima",
                 fontWeight: "bolder",
-                color:"grey"
+                color:"gray"
               }}
             >
               {item.location}
             </Typography>
+            </Link>
           </Grid>
         ))}
       </Grid>

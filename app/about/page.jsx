@@ -29,7 +29,7 @@ export default function About() {
   return (
     <Grid container>
         <Grid container item xs={12} md={6} padding={4} flex justifyContent={"center"} alignItems={"center"}>
-        <Typography variant="h4" sx={{fontFamily:"Raleway"}} >About Y U G A</Typography>
+        <Typography variant="h4" sx={{fontFamily:"Optima"}} >About </Typography>
 
       </Grid>
       <Grid item xs={12} md={6} padding={3} sx={{ display: "flex" }}>
@@ -66,21 +66,22 @@ export default function About() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center", // Horizontal centering
+            flexWrap:"wrap"
 
-            fontFamily: "Raleway",
+        
           }}
         >
-          <Typography>
-            Y U G A started in 2019 back in the days when the founders' started
+          <Typography sx={{fontFamily:"Optima",fontSize:"large",fontWeight:"bold",textAlign:"justify",textJustify:"inter-character",}}>
+            Y U G A started in 2019 back in the days when the founders started
             practicing independently, as a small office at home, which gave the
             comfort of home space with the flexibility of work space. When the
             firm expanded in 2020, the small home office perception stuck and is
-            hence augmented to Y U G A . Y U G A believe in the simplicity and
+            hence augmented to Y U G A. <br/> We believe in the simplicity and
             humbleness of a design which shapes the project into a sensible work
             of art. We approaches the design as a process which beautifully
             unfolds into a series of ideas and relentlessly we work up on it to
             nurture the project. We believe the designs evolve with time, which
-            naturally weaves itself, often astonished b y the ultimate outcome
+            naturally weaves itself, often astonished by the ultimate outcome
             evolving from our distinct ideas. We encourage our clients to do
             what they do the best, to dream without inhibitions. Then we get to
             work doing what we do the best, transforming them into designs that

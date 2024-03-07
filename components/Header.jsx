@@ -122,7 +122,8 @@ function Header() {
                 mr: 2,
                 display: { xs: "flex", md: "none" },
                 color: "black",
-                fontFamily: "Lovelo", // Use any font family you prefer
+                fontFamily: "Lovelo",
+               
                 fontSize: "0.6rem",
               }}
             >
