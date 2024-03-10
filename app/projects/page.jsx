@@ -54,7 +54,7 @@ export default function Project() {
             />
           </div>
         
-      <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem", color:"#ffc300"}}>{item.project_name}</Typography>
+      <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem", color:"black"}}>{item.project_name}</Typography>
       <Typography
               variant="subtitle2"
               sx={{

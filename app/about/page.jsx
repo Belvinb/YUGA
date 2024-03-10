@@ -71,7 +71,7 @@ export default function About() {
         
           }}
         >
-          <Typography sx={{fontFamily:"Optima",fontSize:"large",fontWeight:"bold",textAlign:"justify",textJustify:"inter-character",}}>
+          <Typography sx={{fontFamily:"Optima",fontSize:"large"}}>
             Y U G A started in 2019 back in the days when the founders started
             practicing independently, as a small office at home, which gave the
             comfort of home space with the flexibility of work space. When the

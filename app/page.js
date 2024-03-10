@@ -70,7 +70,7 @@ export default function Home() {
                   cursor: "pointer",
                 }}
                 sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-                priority
+               
                 // quality={65}
                 alt={`sample${index + 1}`}
                 // placeholder="blur"
@@ -122,7 +122,7 @@ export default function Home() {
                 fontFamily: "Optima",
                 fontWeight: "bolder",
                 paddingTop: "1rem",
-                color:"#ffc300"
+                color:"black"
               }}
             >
               {item.project_name}

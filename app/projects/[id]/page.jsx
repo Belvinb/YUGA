@@ -53,10 +53,10 @@ export default function SingleProject({ params }) {
       <Grid container p={{xs:4,md:10}} rowGap={5}>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder"}}>{data?.project_name}</Typography>
-          <Typography>Location: {data?.location}</Typography>
+          <Typography sx={{fontFamily:"Optima",color:"gray",fontWeight:"bold"}}>Location: {data?.location}</Typography>
         </Grid>
         <Grid item xs={12} md={6}  >
-          <pre style={{fontFamily:"Optima",fontSize:"large",fontWeight:600,textAlign:"justify",textJustify:"inter-word",whiteSpace: "pre-wrap",}}>{data?.details}</pre>
+          <pre style={{fontFamily:"Optima",fontSize:"1.4rem",fontWeight:"normal",whiteSpace: "pre-wrap",}}>{data?.details}</pre>
         </Grid>
       </Grid>
 

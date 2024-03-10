@@ -55,7 +55,7 @@ export default function Contact() {
       >
         <Grid item>
           <Typography variant="h5"  sx={{fontFamily:"Optima",fontWeight:600}}>Y U G A - Architectural Studio</Typography>
-          <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Thazheyangadi, Pulpally</Typography>
+          <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Wayanad</Typography>
           <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Kerala, 673579</Typography>
           <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>Phone:</Typography>
           <Typography variant="h6"  sx={{fontFamily:"Optima",fontWeight:600}}>
