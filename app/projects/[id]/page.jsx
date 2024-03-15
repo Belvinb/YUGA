@@ -29,7 +29,7 @@ export default function SingleProject({ params }) {
   }
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} sx={{ position: "relative", paddingBottom: "65%" }}>
+      <Grid item xs={12} sx={{ position: "relative", paddingBottom: "70%" }}>
         <Image
           src={data?.main_image}
           // width={0}
