@@ -4,6 +4,8 @@ import { Grid, useTheme, useMediaQuery,Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { PreLoader } from "@/components";
+import { Bounce, Fade, Hinge, JackInTheBox, Roll,Zoom } from "react-awesome-reveal";
+
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const parameters = {
@@ -37,9 +39,12 @@ export default function Project() {
       rowGap={2}
     >
       {data?.map((item) => (
-      <Grid key={item._id} item xs={12} sm={6} >
+        
+        <Grid key={item._id} item xs={12} sm={6} >
+          <Zoom cascade triggerOnce>
       <Link href={`/projects/${item._id}`} passHref style={{textDecoration:"none"}}  >
         
+
           <div style={{ position: "relative", paddingBottom: "65%" /* Aspect ratio 4:3 */ }} className="project-image">
             <Image
               src={item.main_image}
@@ -54,6 +59,7 @@ export default function Project() {
             />
           </div>
         
+        
       <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder",paddingTop:"1rem", color:"black"}}>{item.project_name}</Typography>
       <Typography
               variant="subtitle2"
@@ -65,7 +71,9 @@ export default function Project() {
             >
               {item.location}
             </Typography>
+        
       </Link>
+                </Zoom>
 
     </Grid>
       ))}
