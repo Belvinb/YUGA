@@ -82,7 +82,7 @@ export default function Home() {
         ))}
       </Carousel>
       <Grid container padding={{ xs: 2, md: 7 }} spacing={4} rowGap={2}>
-        {data?.map((item) => (
+        {data ? data.map((item) => (
           <Grid key={item._id} item xs={12} md={6}>
             <Fade  triggerOnce>
 
@@ -143,7 +143,7 @@ export default function Home() {
             </Link>
             </Fade>
           </Grid>
-        ))}
+        )):<PreLoader/>}
       </Grid>
     </Grid>
   );

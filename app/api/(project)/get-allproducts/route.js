@@ -2,6 +2,7 @@ import connectDB from "@/lib/db";
 
 import Project from "@/models/projectModel";
 import { NextRequest, NextResponse } from "next/server";
+// export const fetchCache = 'force-no-store'
 
 export async function GET() {
   try {
