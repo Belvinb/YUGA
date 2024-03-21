@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { Grid, useTheme, useMediaQuery,Typography } from "@mui/material";
 import Image from "next/image";
 import { PreLoader } from "@/components";
+import { Fade } from "react-awesome-reveal";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const parameters = {
@@ -52,11 +53,19 @@ export default function SingleProject({ params }) {
       </Grid>
       <Grid container p={{xs:4,md:10}} rowGap={5}>
         <Grid item xs={12} md={6}>
+          <Fade cascade direction="left">
+
           <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder"}}>{data?.project_name}</Typography>
           <Typography sx={{fontFamily:"Optima",color:"gray",fontWeight:"bold"}}>Location: {data?.location}</Typography>
+          </Fade>
+
+          
         </Grid>
         <Grid item xs={12} md={6}  >
+          <Fade  direction="right">
+
           <pre style={{fontFamily:"Optima",fontSize:"1.4rem",fontWeight:"normal",whiteSpace: "pre-wrap",}}>{data?.details}</pre>
+          </Fade>
         </Grid>
       </Grid>
 
@@ -68,6 +77,8 @@ export default function SingleProject({ params }) {
           mt={2}
           sx={{ position: "relative", paddingBottom: "65%" }}
         >
+          <Fade  triggerOnce>
+
           <Image
             src={item}
             fill
@@ -84,6 +95,7 @@ export default function SingleProject({ params }) {
             alt={`sample1`}
             loading="lazy"
           />
+          </Fade>
         </Grid>
       ))}
     </Grid>

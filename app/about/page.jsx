@@ -7,6 +7,7 @@ import connectDB from "@/lib/db";
 // import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
 import { PreLoader } from "@/components";
+import { Fade } from "react-awesome-reveal";
 
 export default function About() {
   const theme = useTheme();
@@ -71,7 +72,8 @@ export default function About() {
         
           }}
         >
-          
+          <Fade cascade>
+
           <Typography sx={{fontFamily:"Optima",fontSize:"large"}}>
             Y U G A started in 2019 back in the days when the founders started
             practicing independently, as a small office at home, which gave the
@@ -88,6 +90,7 @@ export default function About() {
             work doing what we do the best, transforming them into designs that
             house their bigger dreams
           </Typography>
+          </Fade>
         </Grid>
     </Grid>
   );

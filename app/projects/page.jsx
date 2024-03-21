@@ -41,7 +41,7 @@ export default function Project() {
       {data?.map((item) => (
         
         <Grid key={item._id} item xs={12} sm={6} >
-          <Zoom cascade triggerOnce>
+          <Fade cascade triggerOnce>
       <Link href={`/projects/${item._id}`} passHref style={{textDecoration:"none"}}  >
         
 
@@ -73,7 +73,7 @@ export default function Project() {
             </Typography>
         
       </Link>
-                </Zoom>
+                </Fade>
 
     </Grid>
       ))}

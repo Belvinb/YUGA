@@ -6,6 +6,7 @@ import useSWR from "swr";
 import bannerData from "../data/banner.json";
 import Link from "next/link";
 import { PreLoader } from "@/components";
+import { Fade } from "react-awesome-reveal";
 // const getBanners = async () => {
 //   try {
 //     const res = await fetch("http://localhost:3000/api/bannerimage");
@@ -83,6 +84,8 @@ export default function Home() {
       <Grid container padding={{ xs: 2, md: 7 }} spacing={4} rowGap={2}>
         {data?.map((item) => (
           <Grid key={item._id} item xs={12} md={6}>
+            <Fade  triggerOnce>
+
             <Link
               href={`/projects/${item._id}`}
               style={{ textDecoration: "none" }}
@@ -138,6 +141,7 @@ export default function Home() {
               {item.location}
             </Typography>
             </Link>
+            </Fade>
           </Grid>
         ))}
       </Grid>
