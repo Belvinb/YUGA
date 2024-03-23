@@ -62,7 +62,7 @@ export default function SingleProject({ params }) {
           
         </Grid>
         <Grid item xs={12} md={6}  >
-          <Fade  direction="right">
+          <Fade >
 
           <pre style={{fontFamily:"Optima",fontSize:"1.4rem",fontWeight:"normal",whiteSpace: "pre-wrap",}}>{data?.details}</pre>
           </Fade>
