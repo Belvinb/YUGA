@@ -4,7 +4,6 @@ import Project from "@/models/projectModel";
 import { NextRequest, NextResponse } from "next/server";
 // export const fetchCache = 'force-no-store'
 
-export const revalidate = 1;
 
 
 export async function GET() {

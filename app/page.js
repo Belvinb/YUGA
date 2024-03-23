@@ -16,6 +16,7 @@ const parameters = {
   revalidateOnReconnect: true,
   refreshWhenOffline: false,
   refreshWhenHidden: false,
+  
 };
 
 export default function Home() {
