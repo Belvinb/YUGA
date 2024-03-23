@@ -1,4 +1,5 @@
-"use client";
+"use client"
+import React from 'react';
 import Image from "next/image";
 import Carousel from "react-material-ui-carousel";
 import { Grid, useMediaQuery, useTheme, Typography } from "@mui/material";
@@ -7,19 +8,7 @@ import bannerData from "../data/banner.json";
 import Link from "next/link";
 import { PreLoader } from "@/components";
 import { Fade } from "react-awesome-reveal";
-// const getBanners = async () => {
-//   try {
-//     const res = await fetch("http://localhost:3000/api/bannerimage");
-//     const data = await res.json()
-//     console.log(res,"pages")
-//     if(!res.ok){
-//       throw new Error("Failed to fetch banners")
-//     }
-//     return data
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const parameters = {
   revalidateOnFocus: true,
@@ -27,8 +16,6 @@ const parameters = {
   revalidateOnReconnect: true,
   refreshWhenOffline: false,
   refreshWhenHidden: false,
-  // refreshInterval: 0,
-  // staleTime: 300000,
 };
 
 export default function Home() {
@@ -39,7 +26,6 @@ export default function Home() {
     fetcher,
     parameters
   );
-  console.log(data);
 
   if (isLoading) {
     return <PreLoader />;
@@ -58,89 +44,66 @@ export default function Home() {
               <Image
                 src={item.url}
                 fill
-                // width={0}
-                // height={0}
-                // style={{
-                //   width: "auto",
-                //   height: isSmallScreen ? "35vh" : "100vh",
-                //   // maxHeight: "100vh",
-                //   // minHeight: isSmallScreen ? "40vh" : "86vh",
-                //   transform: "scale(1)",
-                // }}
+                priority
                 style={{
                   cursor: "pointer",
                 }}
                 sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-               
-                // quality={65}
                 alt={`sample${index + 1}`}
-                // placeholder="blur"
-                // blurDataURL="/sample1.webp"
               />
             </Grid>
           </Grid>
         ))}
       </Carousel>
+
       <Grid container padding={{ xs: 2, md: 7 }} spacing={4} rowGap={2}>
         {data ? data.map((item) => (
           <Grid key={item._id} item xs={12} md={6}>
             <Fade  triggerOnce>
-
-            <Link
-              href={`/projects/${item._id}`}
-              style={{ textDecoration: "none" }}
-            >
-              <div
-                style={{
-                  position: "relative",
-                  paddingBottom: "65%" /* Aspect ratio 4:3 */,
-                  
-                }}
-                className="project-image"
+              <Link
+                href={`/projects/${item._id}`}
+                style={{ textDecoration: "none" }}
               >
-                <Image
-                  src={item.main_image}
-                  fill
-                  // width={0}
-                  // height={0}
-                  // style={{
-                  //   width: "100%",
-                  //   height: isSmallScreen ? "32vh" : "50vh",
-                  //   transform: "scale(1)",
-                  //   cursor: "pointer",
-                  // }}
+                <div
                   style={{
-                    cursor: "pointer",
+                    position: "relative",
+                    paddingBottom: "65%" /* Aspect ratio 4:3 */,
                   }}
-                  sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
-                  loading="lazy"
-                  // quality={65}
-                  alt={item.project_name}
-                 
-                />
-              </div>
-            <Typography
-              variant="h5"
-              sx={{
-                fontFamily: "Optima",
-                fontWeight: "bolder",
-                paddingTop: "1rem",
-                color:"black"
-              }}
-            >
-              {item.project_name}
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{
-                fontFamily: "Optima",
-                fontWeight: "bolder",
-                color:"gray"
-              }}
-            >
-              {item.location}
-            </Typography>
-            </Link>
+                  className="project-image"
+                >
+                  <Image
+                    src={item.main_image}
+                    fill
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
+                    priority
+                    alt={item.project_name}
+                  />
+                </div>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontFamily: "Optima",
+                    fontWeight: "bolder",
+                    paddingTop: "1rem",
+                    color:"black"
+                  }}
+                >
+                  {item.project_name}
+                </Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontFamily: "Optima",
+                    fontWeight: "bolder",
+                    color:"gray"
+                  }}
+                >
+                  {item.location}
+                </Typography>
+              </Link>
             </Fade>
           </Grid>
         )):<PreLoader/>}

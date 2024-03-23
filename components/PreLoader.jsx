@@ -11,7 +11,7 @@ const PreLoader = () => {
     useEffect(() => {
         let timeout = setTimeout(()=>{
             splashRef.current.style.display = "none"
-        },1500)
+        },0)
 
         return(()=>{
             clearTimeout(timeout)

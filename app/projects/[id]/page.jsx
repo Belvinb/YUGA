@@ -46,14 +46,14 @@ export default function SingleProject({ params }) {
           // quality={65}
 
           fill
-          loading="lazy"
+          priority
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 80vw, 90vw"
           alt={`sample1`}
         />
       </Grid>
       <Grid container p={{xs:4,md:10}} rowGap={5}>
         <Grid item xs={12} md={6}>
-          <Fade cascade direction="left">
+          <Fade  direction="left">
 
           <Typography variant="h6" sx={{fontFamily:"Optima",fontWeight:"bolder"}}>{data?.project_name}</Typography>
           <Typography sx={{fontFamily:"Optima",color:"gray",fontWeight:"bold"}}>Location: {data?.location}</Typography>
