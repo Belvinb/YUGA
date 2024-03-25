@@ -8,16 +8,16 @@ import React, { useRef,useEffect } from 'react'
 const PreLoader = () => {
 
     const splashRef = useRef()
-    useEffect(() => {
-        let timeout = setTimeout(()=>{
-            splashRef.current.style.display = "none"
-        },1500)
+    // useEffect(() => {
+    //     let timeout = setTimeout(()=>{
+    //         splashRef.current.style.display = "none"
+    //     },1500)
 
-        return(()=>{
-            clearTimeout(timeout)
-        })
+    //     return(()=>{
+    //         clearTimeout(timeout)
+    //     })
     
-    }, [])
+    // }, [])
   return (
     <div ref={splashRef}   style={{
         position: "fixed",

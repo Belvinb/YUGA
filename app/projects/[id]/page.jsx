@@ -18,17 +18,20 @@ const parameters = {
 
 export default function SingleProject({ params }) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const { data, error, isLoading } = useSWR(
+  const isSmallScreen =  useMediaQuery(theme.breakpoints.down("sm"));
+  const { data, error, isLoading } =  useSWR(
     `/api/get-singleproduct/${params.id}`,
     fetcher,
     parameters
   );
-  console.log(data);
+
   if (isLoading) {
     return <PreLoader />;
   }
+
   return (
+    <>
+    {data?
     <Grid container spacing={3}>
       <Grid item xs={12} sx={{ position: "relative", paddingBottom: "65%" }}>
         <Image
@@ -98,6 +101,7 @@ export default function SingleProject({ params }) {
           </Fade>
         </Grid>
       ))}
-    </Grid>
+    </Grid>:<PreLoader/>}
+    </>
   );
 }
